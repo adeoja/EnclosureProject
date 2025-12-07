@@ -1,5 +1,10 @@
-//Project: Once upon a time
-//Team Members: John Madewell, Aarohan Deoja, Aiden Cerna 
+/*
+South Park
+
+Team name: Kiwi
+Team members: John Madewell, Aarohan Deoja, Aiden Cerna 
+Description: In this program we manipulate servos and LEDs utilizing buttons
+*/
 
 #include <Servo.h>
 
@@ -47,10 +52,11 @@ FourthServo.attach(12); //attaches the servo on pin four
 
 void loop() {
 //Main code goes here
+
 //FirstServo.write(180);
 //ThirdServo.write(45);
-    digitalWrite(AlarmLedPin, HIGH);
-    digitalWrite(BatmanLedPin, HIGH);
+// digitalWrite(AlarmLedPin, HIGH);
+//digitalWrite(BatmanLedPin, HIGH);
 
 //First button activates first servo
 FirstButtonVal = digitalRead(FirstButtonPin);
@@ -96,11 +102,13 @@ if (FirstButtonVal == HIGH) {
 SecondButtonVal = digitalRead(SecondButtonPin);
 
 if (SecondButtonVal == HIGH){
-  //Turn on second servo
+  //Turn on second servo, rotates 180 degrees
   SecondServo.write(45);
+  delay(100);
+  SecondServo.write(94);
   } else {
-    //Turn off second servo
-    SecondServo.write(86);
+    //Turn off second servo, a value that is either 90 or in between 92-96
+    SecondServo.write(94);
     }
 
 //Third button turns on led
@@ -121,8 +129,8 @@ if (FourthButtonVal == HIGH) {
   //Turn on third servo
     ThirdServo.write(45);
   } else {
-    //Turn off third servo
-    ThirdServo.write(85);
+  //Turn off third servo number is either 90 or 92-96
+    ThirdServo.write(94);
     }
 
 //Fifth button rotates fourth servo
